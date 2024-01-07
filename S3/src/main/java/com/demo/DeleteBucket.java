@@ -14,10 +14,12 @@ import software.amazon.awssdk.services.s3.model.NoSuchBucketException;
 import java.io.IOException;
 import java.nio.file.*;
 
+//This program deletes an empty bucket. It throws an error if it has objects in it. Make sure to delete everything before you
+//delete the bucket.
 public class DeleteBucket{
     public static void main(String[] args) {
         S3Client s3client = S3Client.builder().region(Region.US_EAST_2).build();
-        String bucketName = "athena-output-sanjay-1234";
+        String bucketName = "cc-project-output-sdk";
         HeadBucketRequest headBucketRequest = HeadBucketRequest.builder().bucket(bucketName).build();
     
         try{
